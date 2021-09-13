@@ -147,8 +147,6 @@ def make_docs(path, projectowner, projectname):
                 projectname     = projectname,
                 projectowner    = projectowner
             )
-            # print(folder + "/" + filename)
-            # print(path + "docsource/" + folder.replace(templatespath, "")[1:] + filename)
 
 def copyfilled(pathin, pathout, projectowner = False, projectname = False, projectyear = False):
     try:
