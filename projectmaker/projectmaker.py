@@ -3,10 +3,10 @@
 
 # Normal import
 try:
-    from projectmakerpy.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs
+    from projectmakerpy.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git
 # Allow local import for development purposes
 except ModuleNotFoundError:
-    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs
+    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git
 
 
 def main():
@@ -57,9 +57,6 @@ def main():
             projectowner    = arguments["owner"], 
             projectname     = arguments["name"]
         )
-    # Git TODO
-    if arguments["git"]:
-        pass
 
     # Misc language dependent
     if arguments["language"] == "python":
@@ -83,6 +80,14 @@ def main():
     elif arguments["language"] == "php":
         make_main_php(projectpath + arguments["name"] + "/www/", arguments["name"])
 
+    # Git
+    if arguments["git"]:
+        make_git(
+            path        = projectpath,
+            url         = arguments["git"],
+            language    = arguments["language"],
+            projectname = arguments["name"]
+        )
 
 
 if __name__ == '__main__':

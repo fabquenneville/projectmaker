@@ -3,6 +3,7 @@
     These are various tools used by projectmakerpy
 '''
 
+import git
 import os
 import sys
 import stat
@@ -51,6 +52,7 @@ def load_arguments():
             if arg[6:] == "none":
                 arguments["docs"] = False
         elif "-git:" in arg:
+            arguments["git"] = arg[5:]
             if arg[5:] == "none":
                 arguments["git"] = False
         elif "-owner:" in arg:
@@ -213,3 +215,20 @@ def copyfilled(pathin, pathout, projectowner = False, projectname = False, proje
 
 def get_templates_path():
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
+
+def make_git(path, url, language, projectname):
+    repo = git.Repo.init(path)
+    repo.git.add(u=True)
+    repo.index.commit("initial commit")
+    print (f"Commited to initial git repository.")
+    if language == "php":
+        git.Submodule.add(
+            repo = repo,
+            url = "git@github.com:FortAwesome/Font-Awesome.git",
+            name = "Font-Awesome",
+            path = path + projectname + "/www/Font-Awesome"
+        )
+        repo.index.commit("Added Font-Awesome submodule")
+        print (f"Added Font-Awesome submodule to git repository.")
+    repo.create_remote("origin", url=url)
+    repo.remote("origin").push("main")
