@@ -26,7 +26,7 @@ def load_arguments():
         "license":False,
         "readme":True,
         "docs":True,
-        "git":True,
+        "git":False,
         "owner":str(),
     }
 
