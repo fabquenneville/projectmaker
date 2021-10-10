@@ -4,7 +4,7 @@ projectmakerpy is a Python command line tool
 
 ## Documentation
 
-The documentation is available on the following [link]()
+The documentation is available on the following [link](https://fabquenneville.github.io/projectmakerpy/)
 
 ## Releases
 

@@ -21,8 +21,11 @@ def load_arguments():
     arguments = {
         "path":str(),
         "name":str(),
+        "language":"python",
         "license":False,
+        "readme":True,
         "docs":True,
+        "git":True,
         "owner":str(),
     }
 
@@ -35,10 +38,21 @@ def load_arguments():
             arguments["path"] = path
         elif "-name:" in arg:
             arguments["name"] = arg[6:]
+        elif "-language:" in arg:
+            arguments["language"] = arg[10:]
         elif "-license:" in arg:
             arguments["license"] = arg[9:]
-        elif "-nodocs" in arg:
-            arguments["docs"] = False
+            if arguments["license"] == "none":
+                arguments["license"] = False
+        elif "-readme:" in arg:
+            if arg[8:] == "none":
+                arguments["readme"] = False
+        elif "-docs:" in arg:
+            if arg[6:] == "none":
+                arguments["docs"] = False
+        elif "-git:" in arg:
+            if arg[5:] == "none":
+                arguments["git"] = False
         elif "-owner:" in arg:
             arguments["owner"] = arg[7:]
 
@@ -58,25 +72,46 @@ def make_empty_file(path):
     print (f"Successfully created {path}")
 
 def make_gitignore(path):
-    templatespath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
+    templatespath = get_templates_path()
     copyfilled(templatespath + "gitignore.txt", path + '.gitignore')
 
 def make_todo(path):
-    templatespath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
+    templatespath = get_templates_path()
 
     copyfilled(templatespath + "todo.md", path + 'TODO.md')
 
 def make_readme(path, projectname):
-    templatespath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
-
+    templatespath = get_templates_path()
     copyfilled(
         pathin          = templatespath + "readme.md",
         pathout         = path + 'README.md',
         projectname     = projectname
     )
 
+def make_css(path):
+    templatespath = get_templates_path()
+    copyfilled(
+        pathin          = templatespath + "sections.css",
+        pathout         = path + 'default.css',
+    )
+
+def make_php_libraries(path, projectowner, projectname):
+    templatespath = get_templates_path()
+    copyfilled(
+        pathin          = templatespath + "functions.php",
+        pathout         = path + 'functions.php',
+        projectname     = projectname,
+        projectowner    = projectowner
+    )
+    copyfilled(
+        pathin          = templatespath + "functions_builds.php",
+        pathout         = path + 'functions_builds.php',
+        projectname     = projectname,
+        projectowner    = projectowner
+    )
+
 def make_license(path, projectowner, license = False):
-    templatespath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
+    templatespath = get_templates_path()
 
     licensefname = "licenses/mit.txt"
     if license == "gpl2":
@@ -96,7 +131,7 @@ def make_license(path, projectowner, license = False):
     )
 
 def make_setup(path, projectowner, projectname):
-    templatespath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
+    templatespath = get_templates_path()
     fileoutpath = path + 'setup.py'
 
     copyfilled(
@@ -106,8 +141,8 @@ def make_setup(path, projectowner, projectname):
         projectowner    = projectowner
     )
 
-def make_main(path, name):
-    templatespath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
+def make_main_python(path, name):
+    templatespath = get_templates_path()
     fileoutpath = path + name + '.py'
 
     copyfilled(templatespath + "helloworld.py", fileoutpath)
@@ -116,6 +151,14 @@ def make_main(path, name):
         f.write(f"__all__ = ['{name}']")
     print (f"Successfully created {path + '__init__.py'}")
 
+def make_main_php(path, projectname):
+    templatespath = get_templates_path()
+
+    copyfilled(
+        pathin          = templatespath + "index.php",
+        pathout         = path + 'index.php',
+        projectname     = projectname
+    )
 
 
 def make_docs(path, projectowner, projectname):
@@ -168,4 +211,5 @@ def copyfilled(pathin, pathout, projectowner = False, projectname = False, proje
         os.chmod(pathout, st.st_mode | stat.S_IXUSR | stat.S_IXGRP)
         print (f"Gave executable permission to {pathout}")
 
-        
+def get_templates_path():
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
