@@ -1,6 +1,3 @@
-[submodule "projectmakerpy/templates/docsource"]
-	path = projectmakerpy/templates/docsource
-	url = git@github.com:fabquenneville/docsource.git
 [submodule "projectmaker/templates/docsource"]
 	path = projectmaker/templates/docsource
-	url = gitea@gitea.dirtynet.ca:fabrice/docsource.git
+	url = git@github.com:fabquenneville/docsource.git
