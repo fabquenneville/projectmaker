@@ -1,10 +1,13 @@
-TO-DO
-=====
+# TO-DO
 
-Project
--------
-* Initiate git
-    * Add submodules to git depending on project
+## Bugs
 
-Modules
--------
+## Project
+* Comment all functions
+* Document cli
+* Fill setup.py
+
+## Big features
+* Add support for more languages
+
+## Objects

@@ -31,7 +31,6 @@ def load_arguments():
     }
 
     for arg in sys.argv:
-        # Confirm with the user that he selected to delete found files
         if "-path:" in arg:
             path = arg[6:]
             if path[-1:] != "/":
@@ -61,6 +60,14 @@ def load_arguments():
     return arguments
 
 def make_directory(path):
+    ''' Make a directory at the specified path, print and return the success of the operation.
+
+    Args:
+        path: The path of the directory to make.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     try:
         os.mkdir(path)
     except OSError:
@@ -70,49 +77,125 @@ def make_directory(path):
     return True
 
 def make_empty_file(path):
-    open(path, 'a').close()
+    ''' Make an empty file at the specified path, print and return the success of the operation.
+
+    Args:
+        path: The path of the directory to make.
+
+    Returns:
+        boolean: The success of the operation
+    '''
+    try:
+        open(path, 'a').close()
+    except FileNotFoundError:
+        print (f"Creating {path} failed")
+        return False
     print (f"Successfully created {path}")
+    return True
 
 def make_gitignore(path):
+    ''' Builds the projects .gitignore.
+
+    Args:
+        path: The path of the file to make.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     templatespath = get_templates_path()
-    copyfilled(templatespath + "gitignore.txt", path + '.gitignore')
+    if not copyfilled(templatespath + "gitignore.txt", path + '.gitignore'):
+        return False
+    return True
+
 
 def make_todo(path):
-    templatespath = get_templates_path()
+    ''' Builds the projects TODO.md.
 
-    copyfilled(templatespath + "todo.md", path + 'TODO.md')
+    Args:
+        path: The path of the file to make.
+
+    Returns:
+        boolean: The success of the operation
+    '''
+    templatespath = get_templates_path()
+    if not copyfilled(templatespath + "todo.md", path + 'TODO.md'):
+        return False
+    return True
 
 def make_readme(path, projectname):
+    ''' Builds the projects README.md.
+
+    Args:
+        path:           The path of the directory to make.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     templatespath = get_templates_path()
-    copyfilled(
+    if not copyfilled(
         pathin          = templatespath + "readme.md",
         pathout         = path + 'README.md',
         projectname     = projectname
-    )
+    ):
+        return False
+    return True
 
 def make_css(path):
+    ''' Builds the projects default.css.
+
+    Args:
+        path: The path of the directory to make.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     templatespath = get_templates_path()
-    copyfilled(
+    if not copyfilled(
         pathin          = templatespath + "sections.css",
         pathout         = path + 'default.css',
-    )
+    ):
+        return False
+    return True
 
 def make_php_libraries(path, projectowner, projectname):
+    ''' Builds the projects basic php files.
+
+    Args:
+        path:           The path of the directory to make.
+        projectowner:   The owner for the project to pre-fill.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     templatespath = get_templates_path()
-    copyfilled(
+    if not copyfilled(
         pathin          = templatespath + "functions.php",
         pathout         = path + 'functions.php',
         projectname     = projectname,
         projectowner    = projectowner
-    )
-    copyfilled(
+    ) or not copyfilled(
         pathin          = templatespath + "functions_builds.php",
         pathout         = path + 'functions_builds.php',
         projectname     = projectname,
         projectowner    = projectowner
-    )
+    ):
+        return False
+    return True
 
 def make_license(path, projectowner, license = False):
+    ''' Builds the projects basic php files.
+
+    Args:
+        path:           The path of the directory to make.
+        projectowner:   The owner for the project to pre-fill.
+        license:        The license acronym for the project to pre-fill.
+                        (mit, gpl2, gpl3, moz2, apache)
+
+    Returns:
+        boolean: The success of the operation
+    '''
     templatespath = get_templates_path()
 
     licensefname = "licenses/mit.txt"
@@ -125,45 +208,94 @@ def make_license(path, projectowner, license = False):
     elif license == "apache":
         licensefname = "licenses/apache.txt"
 
-    copyfilled(
+    if not copyfilled(
         pathin          = templatespath + licensefname,
         pathout         = path + 'LICENSE',
         projectowner    = projectowner,
         projectyear     = str(datetime.now().year)
-    )
+    ):
+        return False
+    return True
 
 def make_setup(path, projectowner, projectname):
+    ''' Builds a basic setup.py for module packaging.
+
+    Args:
+        path:           The path of the directory to make.
+        projectowner:   The owner for the project to pre-fill.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     templatespath = get_templates_path()
     fileoutpath = path + 'setup.py'
 
-    copyfilled(
+    if not copyfilled(
         pathin          = templatespath + "setup.py",
         pathout         = fileoutpath,
         projectname     = projectname,
         projectowner    = projectowner
-    )
+    ):
+        return False
+    return True
 
-def make_main_python(path, name):
+def make_main_python(path, projectname):
+    ''' Builds a basic pre-filled hello world python module and its __init__.py.
+
+    Args:
+        path:           The path of the directory to make.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     templatespath = get_templates_path()
-    fileoutpath = path + name + '.py'
+    fileoutpath = path + projectname + '.py'
 
-    copyfilled(templatespath + "helloworld.py", fileoutpath)
 
-    with open(path + '__init__.py', 'w') as f:
-        f.write(f"__all__ = ['{name}']")
+    if not copyfilled(templatespath + "helloworld.py", fileoutpath):
+        return False
+
+    try:
+        with open(path + '__init__.py', 'w') as f:
+            f.write(f"__all__ = ['{projectname}']")
+    except EnvironmentError:
+        return False
     print (f"Successfully created {path + '__init__.py'}")
+    return True
 
 def make_main_php(path, projectname):
-    templatespath = get_templates_path()
+    ''' Builds a basic pre-filled hello world php script.
 
-    copyfilled(
+    Args:
+        path:           The path of the directory to make.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
+    templatespath = get_templates_path()
+    if copyfilled(
         pathin          = templatespath + "index.php",
         pathout         = path + 'index.php',
         projectname     = projectname
-    )
+    ):
+        return False
+    return True
 
 
 def make_docs(path, projectowner, projectname):
+    ''' Builds a basic sphinx project documentation and the shell scripts to manage the documentation for release.
+
+    Args:
+        path:           The path of the directory to make.
+        projectowner:   The owner for the project to pre-fill.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     templatespath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/docsource"
 
     # Making folders
@@ -174,7 +306,8 @@ def make_docs(path, projectowner, projectname):
         if folderstomake[i][:1] == "/":
             folderstomake[i] = folderstomake[i][1:]
     for folder in folderstomake:
-        make_directory(path + "docsource/" + folder)
+        if not make_directory(path + "docsource/" + folder):
+            return False
     
     # Copying files
     for folder in origfolders:
@@ -186,14 +319,28 @@ def make_docs(path, projectowner, projectname):
                 continue
             if not os.path.isfile(os.path.join(folder, filename)):
                 continue
-            copyfilled(
+            if not copyfilled(
                 pathin          = folder + "/" + filename,
                 pathout         = path + "docsource/" + folder.replace(templatespath, "")[1:] + filename,
                 projectname     = projectname,
                 projectowner    = projectowner
-            )
+            ):
+                return False
+    return True
 
 def copyfilled(pathin, pathout, projectowner = False, projectname = False, projectyear = False):
+    ''' Copies a file template filled witht the information passed as parameters.
+
+    Args:
+        pathin:         The path of the template.
+        pathout:        The path of the file to make.
+        projectowner:   The owner for the project to pre-fill.
+        projectname:    The name for the project to pre-fill.
+        projectyear:    The year for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
     try:
         with open(pathin) as fi:
             with open(pathout, 'w') as fo:
@@ -206,17 +353,39 @@ def copyfilled(pathin, pathout, projectowner = False, projectname = False, proje
                     text = text.replace("projectyear", projectyear)
                 fo.write(text)
     except UnicodeDecodeError:
-        copyfile(pathin, pathout)
-    print (f"Successfully created {pathout}")
+        try:
+            copyfile(pathin, pathout)
+        except OSError:
+            print (f"Creating {pathout} failed")
+            return False
     if pathout[-2:] in ["sh", "py"] or pathout[-3:] in ["bat"]:
         st = os.stat(pathout)
         os.chmod(pathout, st.st_mode | stat.S_IXUSR | stat.S_IXGRP)
         print (f"Gave executable permission to {pathout}")
+    print (f"Successfully created {pathout}")
+    return True
 
 def get_templates_path():
+    ''' Returns the path where the templates are stored.
+
+    Args:
+
+    Returns:
+        string: The path of the templates
+    '''
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
 
 def make_git(path, url, language, projectname):
+    ''' Initiate a basic git repository and pre-attach some useful submodules for some languages.
+
+    Args:
+        path:           The path of the project.
+        url:            The url of the blank git repository.
+        language:       The programing language of the project.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+    '''
     repo = git.Repo.init(path)
     # repo.git.add(u=True)
     repo.git.add('--all')
