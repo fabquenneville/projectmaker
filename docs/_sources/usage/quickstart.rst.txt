@@ -4,7 +4,7 @@ Quickstart
 
 .. code-block:: bash
 
-    projectname [foo,bar] [-del] [-foo:foo,bar] [-bar:foo,bar]
+    projectmaker [foo,bar] [-del] [-foo:foo,bar] [-bar:foo,bar]
 
 ** Warning dont do this other thing **
 
@@ -20,8 +20,8 @@ Examples:
 .. code-block:: bash
 
     # Do this
-    projectname foo -del -foo:bar -bar:foo
+    projectmaker foo -del -foo:bar -bar:foo
     # Do that
-    projectname bar -foo:foo
+    projectmaker bar -foo:foo
 
 More examples in :doc:`use_cases`

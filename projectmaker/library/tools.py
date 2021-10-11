@@ -23,9 +23,9 @@ def load_arguments():
         "path":str(),
         "name":str(),
         "language":"python",
-        "license":False,
+        "license":"mit",
         "readme":True,
-        "docs":True,
+        "docs":"sphinx",
         "git":False,
         "owner":str(),
     }
@@ -48,7 +48,8 @@ def load_arguments():
             if arg[8:] == "none":
                 arguments["readme"] = False
         elif "-docs:" in arg:
-            if arg[6:] == "none":
+            arguments["docs"] = arg[6:]
+            if arguments["docs"] == "none":
                 arguments["docs"] = False
         elif "-git:" in arg:
             arguments["git"] = arg[5:]
@@ -71,9 +72,9 @@ def make_directory(path):
     try:
         os.mkdir(path)
     except OSError:
-        print (f"Creating {path} failed")
+        print(f"Creating {path} failed")
         return False
-    print (f"Successfully created {path}")
+    print(f"Successfully created {path}")
     return True
 
 def make_empty_file(path):
@@ -88,9 +89,9 @@ def make_empty_file(path):
     try:
         open(path, 'a').close()
     except FileNotFoundError:
-        print (f"Creating {path} failed")
+        print(f"Creating {path} failed")
         return False
-    print (f"Successfully created {path}")
+    print(f"Successfully created {path}")
     return True
 
 def make_gitignore(path):
@@ -262,7 +263,7 @@ def make_main_python(path, projectname):
             f.write(f"__all__ = ['{projectname}']")
     except EnvironmentError:
         return False
-    print (f"Successfully created {path + '__init__.py'}")
+    print(f"Successfully created {path + '__init__.py'}")
     return True
 
 def make_main_php(path, projectname):
@@ -356,13 +357,13 @@ def copyfilled(pathin, pathout, projectowner = False, projectname = False, proje
         try:
             copyfile(pathin, pathout)
         except OSError:
-            print (f"Creating {pathout} failed")
+            print(f"Creating {pathout} failed")
             return False
     if pathout[-2:] in ["sh", "py"] or pathout[-3:] in ["bat"]:
         st = os.stat(pathout)
         os.chmod(pathout, st.st_mode | stat.S_IXUSR | stat.S_IXGRP)
-        print (f"Gave executable permission to {pathout}")
-    print (f"Successfully created {pathout}")
+        print(f"Gave executable permission to {pathout}")
+    print(f"Successfully created {pathout}")
     return True
 
 def get_templates_path():
@@ -390,7 +391,7 @@ def make_git(path, url, language, projectname):
     # repo.git.add(u=True)
     repo.git.add('--all')
     repo.index.commit("initial commit")
-    print (f"Commited to initial git repository.")
+    print(f"Commited to initial git repository.")
     if language == "php":
         git.Submodule.add(
             repo = repo,
@@ -399,6 +400,6 @@ def make_git(path, url, language, projectname):
             path = path + projectname + "/www/Font-Awesome"
         )
         repo.index.commit("Added Font-Awesome submodule")
-        print (f"Added Font-Awesome submodule to git repository.")
+        print(f"Added Font-Awesome submodule to git repository.")
     repo.create_remote("origin", url=url)
     repo.remote("origin").push("main")

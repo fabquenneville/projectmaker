@@ -1,24 +1,25 @@
-.. projectname documentation master file, created by
+.. projectmaker documentation master file, created by
    sphinx-quickstart on Fri Nov 20 22:46:06 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=======================================
-Welcome to projectname's documentation!
-=======================================
+========================================
+Welcome to projectmaker's documentation!
+========================================
 
-projectname is a Python command line tool to do this and that.
+projectmaker is a Python command line tool to make blank project frameworks.
 
-* Do this
-* Do that
+* Setup the folder structure.
+* Create and link basic files.
+* Initiate git repositories and integrate basic submodules.
+* Setup a basic Hello world and its linked blank code libraries.
 
-The source code can be found on `GitHub <https://github.com/fabquenneville/projectname>`_
+The source code can be found on `GitHub <https://github.com/fabquenneville/projectmaker>`_
 
 .. toctree::
    :maxdepth: 2
    :caption: Usage:
 
-   usage/warnings
    usage/quickstart
    usage/manual
    usage/use_cases

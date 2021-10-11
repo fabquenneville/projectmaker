@@ -14,8 +14,10 @@ def main():
     # Get/load command parameters
     arguments = load_arguments()
     if len(arguments["path"]) < 1 or len(arguments["name"]) < 1:
+        print(f"No path seelected please see: https://fabquenneville.github.io/projectmakerpy/")
         return False
     if not make_directory(arguments["path"] + arguments["name"]):
+        print(f"Creating {arguments["path"] + arguments["name"]} failed")
         return False
 
     # Setting variables    

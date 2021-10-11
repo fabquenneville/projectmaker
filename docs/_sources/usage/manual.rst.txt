@@ -5,66 +5,68 @@ Manual
 Name
 ----
 
-projectname
+projectmaker
 
 Synopsis
 --------
 
 .. code-block:: bash
 
-    projectname [foo,bar] [-del] [-foo:foo,bar] [-bar:foo,bar]
-
-** Warning dont do this other thing **
+    projectmaker -path: [-name:] [-owner:] [-language:python,php] [-license:mit,gpl2,gpl3,moz2,apache,none] [-readme:none] [-docs:sphinx,none] [-git:]
 
 default options are:
 
 .. code-block:: bash
 
-    -foo:foo
-    -bar:
+    -language:python
+    -license:mit
+    -readme:
+    -docs:sphinx
 
 Description
 -----------
 
-projectname is a Python command line tool to do that.
+projectmakerpy is a Python command line tool to make blank project frameworks.
 
-* Do this
-* Do that
+* Setup the folder structure.
+* Create and link basic files.
+* Initiate git repositories and integrate basic submodules.
+* Setup a basic Hello world and its linked blank code libraries.
 
 Options
 -------
 
-foo
-====
-Search and list videos filtered by the parameters passed by the user.
+-path:
+======
 
-convert
+-name:
+======
+
+
+-owner:
 =======
-Do this
 
--del:
+
+-language:
+==========
+
+
+-license:
+=========
+[mit,gpl2,gpl3,moz2,apache,none]
+
+-readme:
+========
+
+
+-docs:
+======
+[sphinx,none]
+
+-git:
 =====
-Delete all of this.
 
-See :doc:`warnings`
 
--foo:
-=====
-[foo,bar]
-
-This command does something
-
-Examples
---------
-
-.. code-block:: bash
-
-    # Do this
-    projectname foo -del -foo:bar -bar:foo
-    # Do that
-    projectname bar -foo:foo
-
-More examples in :doc:`use_cases`
 
 See Also
 --------

@@ -2,7 +2,7 @@
 Use cases
 =========
 
-The main reasons to use projectname would be the following:
+The main reasons to use projectmaker would be the following:
 
 * :ref:`cmd1` do this:
 * :ref:`cmd2` do that:
@@ -16,7 +16,7 @@ By running this command you can do this:
 
 .. code-block:: bash
 
-    projectname option -foo:bar -dirs:/mnt/foo/
+    projectmaker option -foo:bar -dirs:/mnt/foo/
 
 .. _cmd2:
 
@@ -27,5 +27,5 @@ By running that command you can do that:
 
 .. code-block:: bash
 
-    projectname option -bar:foo -dirs:/mnt/foo/
+    projectmaker option -bar:foo -dirs:/mnt/foo/
 

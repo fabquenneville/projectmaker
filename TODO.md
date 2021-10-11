@@ -1,6 +1,7 @@
 # TO-DO
 
 ## Bugs
+* Test blanks: docs, language
 
 ## Project
 * Document cli
