@@ -1,6 +1,7 @@
 # projectmakerpy
 
 projectmakerpy is a Python command line tool to make blank project frameworks.
+
 * Setup the folder structure.
 * Create and link basic files.
 * Initiate git repositories and integrate basic submodules.
@@ -8,7 +9,7 @@ projectmakerpy is a Python command line tool to make blank project frameworks.
 
 ## Documentation
 
-The documentation is available on the following [link](https://fabquenneville.github.io/projectmakerpy/)
+The documentation is available on the following [link](https://fabquenneville.github.io/projectmaker/)
 
 ## Releases
 
