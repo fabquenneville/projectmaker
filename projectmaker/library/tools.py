@@ -218,7 +218,8 @@ def get_templates_path():
 
 def make_git(path, url, language, projectname):
     repo = git.Repo.init(path)
-    repo.git.add(u=True)
+    # repo.git.add(u=True)
+    repo.git.add('--all')
     repo.index.commit("initial commit")
     print (f"Commited to initial git repository.")
     if language == "php":
