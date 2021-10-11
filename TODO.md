@@ -2,6 +2,8 @@
 
 ## Bugs
 * Test blanks: docs, language
+* projectname not being replaced in the docs creation process.
+* Bug in docs template.
 
 ## Project
 * Document cli

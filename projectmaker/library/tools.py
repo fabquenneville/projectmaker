@@ -164,7 +164,7 @@ def make_php_libraries(path, projectowner, projectname):
 
     Args:
         path:           The path of the directory to make.
-        projectowner:   The owner for the project to pre-fill.
+        projectowner:   The name of the owner for the project to pre-fill.
         projectname:    The name for the project to pre-fill.
 
     Returns:
@@ -190,7 +190,7 @@ def make_license(path, projectowner, license = False):
 
     Args:
         path:           The path of the directory to make.
-        projectowner:   The owner for the project to pre-fill.
+        projectowner:   The name of the owner for the project to pre-fill.
         license:        The license acronym for the project to pre-fill.
                         (mit, gpl2, gpl3, moz2, apache)
 
@@ -223,7 +223,7 @@ def make_setup(path, projectowner, projectname):
 
     Args:
         path:           The path of the directory to make.
-        projectowner:   The owner for the project to pre-fill.
+        projectowner:   The name of the owner for the project to pre-fill.
         projectname:    The name for the project to pre-fill.
 
     Returns:
@@ -291,7 +291,7 @@ def make_docs(path, projectowner, projectname):
 
     Args:
         path:           The path of the directory to make.
-        projectowner:   The owner for the project to pre-fill.
+        projectowner:   The name of the owner for the project to pre-fill.
         projectname:    The name for the project to pre-fill.
 
     Returns:
@@ -335,7 +335,7 @@ def copyfilled(pathin, pathout, projectowner = False, projectname = False, proje
     Args:
         pathin:         The path of the template.
         pathout:        The path of the file to make.
-        projectowner:   The owner for the project to pre-fill.
+        projectowner:   The name of the owner for the project to pre-fill.
         projectname:    The name for the project to pre-fill.
         projectyear:    The year for the project to pre-fill.
 

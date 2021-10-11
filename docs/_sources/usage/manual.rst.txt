@@ -38,40 +38,59 @@ Options
 
 -path:
 ======
+The path where to create the project framework.
 
 -name:
 ======
-
+The name for the project to pre-fill.
 
 -owner:
 =======
-
+The name of the owner for the project to pre-fill.
 
 -language:
 ==========
-
+[python,php]
+The programming language of the project.
 
 -license:
 =========
 [mit,gpl2,gpl3,moz2,apache,none]
+The acronym of the license to add to the project, defaults to the MIT license.
 
 -readme:
 ========
-
+Weither to add a README.md to the project.
 
 -docs:
 ======
 [sphinx,none]
+Weither to add a documentation template to the project, defaults to a sphinx documentation and related scripts.
 
 -git:
 =====
-
+The url of a blank git repository where this project will be hosted and where to push the first commits.
 
 
 See Also
 --------
 
-`FFmpeg <https://ffmpeg.org/>`_
+
+Fellow projects used by projectmaker
+====================================
+
+* `Git source code managment <https://git-scm.com/doc>`_
+* `Sphinx documentation generator <https://www.sphinx-doc.org/en/master/>`_
+* `docsource <https://github.com/fabquenneville/docsource>`_
+
+Licenses
+========
+
+* `MIT <https://opensource.org/licenses/MIT>`_
+* `GNU GPLv2 <https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html>`_
+* `GNU GPLv3 <https://www.gnu.org/licenses/gpl-3.0.html>`_
+* `Mozilla Public License v2.0 <https://www.mozilla.org/en-US/MPL/2.0/>`_
+* `Apache License v2.0 <https://www.apache.org/licenses/LICENSE-2.0>`_
 
 Author
 ------
