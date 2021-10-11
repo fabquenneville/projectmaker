@@ -3,7 +3,6 @@
 ## Bugs
 
 ## Project
-* Comment all functions
 * Document cli
 * Fill setup.py
 
