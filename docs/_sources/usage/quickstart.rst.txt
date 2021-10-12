@@ -2,20 +2,28 @@
 Quickstart
 ==========
 
+Synopsis
+--------
+
 .. code-block:: bash
 
-    projectmaker [foo,bar] [-del] [-foo:foo,bar] [-bar:foo,bar]
-
-** Warning dont do this other thing **
+    projectmaker    -path: [-name:] [-owner:] [-language:python,php]
+                    [-license:mit,gpl2,gpl3,moz2,apache,none]
+                    [-readme:none] [-docs:sphinx,none] [-git:]
 
 default options are:
 
 .. code-block:: bash
 
-    -foo:foo
-    -bar:
+    -language:python
+    -license:mit
+    -readme:
+    -docs:sphinx
+
+The complete description of the CLI is found in :doc:`manual`.
 
 Examples:
+---------
 
 .. code-block:: bash
 

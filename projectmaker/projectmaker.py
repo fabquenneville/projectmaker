@@ -17,7 +17,7 @@ def main():
         print(f"No path seelected please see: https://fabquenneville.github.io/projectmaker/usage/manual.html")
         return False
     if not make_directory(arguments["path"] + arguments["name"]):
-        print(f"Creating {arguments["path"] + arguments["name"]} failed.")
+        print(f"Creating {arguments['path'] + arguments['name']} failed.")
         return False
 
     # Setting variables    

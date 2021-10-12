@@ -12,7 +12,9 @@ Synopsis
 
 .. code-block:: bash
 
-    projectmaker -path: [-name:] [-owner:] [-language:python,php] [-license:mit,gpl2,gpl3,moz2,apache,none] [-readme:none] [-docs:sphinx,none] [-git:]
+    projectmaker    -path: [-name:] [-owner:] [-language:python,php]
+                    [-license:mit,gpl2,gpl3,moz2,apache,none]
+                    [-readme:none] [-docs:sphinx,none] [-git:]
 
 default options are:
 

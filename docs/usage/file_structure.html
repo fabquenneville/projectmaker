@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Errors &#8212; projectmaker  documentation</title>
+    <title>File structure &#8212; projectmaker  documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="0.0.1 Release Notes" href="../releasenotes/0.0.1-changelog.html" />
-    <link rel="prev" title="Use cases" href="use_cases.html" />
+    <link rel="next" title="Use cases" href="use_cases.html" />
+    <link rel="prev" title="Manual" href="manual.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -34,11 +34,55 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="errors">
-<h1>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="other-bugs">
-<h2>Other bugs<a class="headerlink" href="#other-bugs" title="Permalink to this headline">¶</a></h2>
-<p>If you face other bugs, issues or want to suggest features feel free to open a bug report on <a class="reference external" href="https://github.com/fabquenneville/projectmaker/issues">GitHub</a></p>
+  <div class="section" id="file-structure">
+<h1>File structure<a class="headerlink" href="#file-structure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python-file-structure">
+<h2>python file structure<a class="headerlink" href="#python-file-structure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="folders">
+<h3>Folders<a class="headerlink" href="#folders" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname
+/projectname/dist
+/projectname/docs
+/projectname/docsource
+/projectname/docsource/source
+/projectname/docsource/source/releasenotes
+/projectname/docsource/source/_static
+/projectname/docsource/source/usage
+/projectname/misc
+/projectname/projectname
+/projectname/projectname/library
+</pre></div>
+</div>
+</div>
+<div class="section" id="files">
+<h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname/.gitignore
+/projectname/LICENSE
+/projectname/README.md
+/projectname/requirements.txt
+/projectname/setup.py
+/projectname/TODO.md
+/projectname/docsource/LICENSE
+/projectname/docsource/make.bat
+/projectname/docsource/makedocs.sh
+/projectname/docsource/Makefile
+/projectname/docsource/README.md
+/projectname/docsource/sourceconf.py
+/projectname/docsource/sourceindex.rst
+/projectname/docsource/TODO.md
+/projectname/source/releasenotes0.0.1-changelog.rst
+/projectname/source/_staticfavicon.ico
+/projectname/source/_staticlogo.png
+/projectname/source/usageerrors.rst
+/projectname/source/usagemanual.rst
+/projectname/source/usagequickstart.rst
+/projectname/source/usageuse_cases.rst
+/projectname/source/usagewarnings.rst
+/projectname/projectname/__init__.py
+/projectname/projectname/projectname.py
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -66,12 +110,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Manual</a></li>
-<li class="toctree-l1"><a class="reference internal" href="file_structure.html">File structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Errors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#other-bugs">Other bugs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">File structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-file-structure">python file structure</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Release Notes:</span></p>
 <ul>
@@ -82,8 +126,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="use_cases.html" title="previous chapter">Use cases</a></li>
-      <li>Next: <a href="../releasenotes/0.0.1-changelog.html" title="next chapter">0.0.1 Release Notes</a></li>
+      <li>Previous: <a href="manual.html" title="previous chapter">Manual</a></li>
+      <li>Next: <a href="use_cases.html" title="next chapter">Use cases</a></li>
   </ul></li>
 </ul>
 </div>
@@ -117,7 +161,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/usage/errors.rst.txt"
+      <a href="../_sources/usage/file_structure.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

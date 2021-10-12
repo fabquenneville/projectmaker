@@ -36,16 +36,24 @@
             
   <div class="section" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker <span class="o">[</span>foo,bar<span class="o">]</span> <span class="o">[</span>-del<span class="o">]</span> <span class="o">[</span>-foo:foo,bar<span class="o">]</span> <span class="o">[</span>-bar:foo,bar<span class="o">]</span>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker    -path: <span class="o">[</span>-name:<span class="o">]</span> <span class="o">[</span>-owner:<span class="o">]</span> <span class="o">[</span>-language:python,php<span class="o">]</span>
+                <span class="o">[</span>-license:mit,gpl2,gpl3,moz2,apache,none<span class="o">]</span>
+                <span class="o">[</span>-readme:none<span class="o">]</span> <span class="o">[</span>-docs:sphinx,none<span class="o">]</span> <span class="o">[</span>-git:<span class="o">]</span>
 </pre></div>
 </div>
-<p>** Warning dont do this other thing **</p>
 <p>default options are:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-foo:foo
--bar:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-language:python
+-license:mit
+-readme:
+-docs:sphinx
 </pre></div>
 </div>
-<p>Examples:</p>
+<p>The complete description of the CLI is found in <a class="reference internal" href="manual.html"><span class="doc">Manual</span></a>.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do this</span>
 projectmaker foo -del -foo:bar -bar:foo
 <span class="c1"># Do that</span>
@@ -53,6 +61,7 @@ projectmaker bar -foo:foo
 </pre></div>
 </div>
 <p>More examples in <a class="reference internal" href="use_cases.html"><span class="doc">Use cases</span></a></p>
+</div>
 </div>
 
 
@@ -77,8 +86,13 @@ projectmaker bar -foo:foo
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Usage:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples:</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_structure.html">File structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a></li>
 </ul>

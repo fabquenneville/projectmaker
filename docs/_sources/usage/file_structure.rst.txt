@@ -1,0 +1,54 @@
+
+==============
+File structure
+==============
+
+python file structure
+---------------------
+
+Folders
+=======
+
+.. code-block:: bash
+
+    /projectname
+    /projectname/dist
+    /projectname/docs
+    /projectname/docsource
+    /projectname/docsource/source
+    /projectname/docsource/source/releasenotes
+    /projectname/docsource/source/_static
+    /projectname/docsource/source/usage
+    /projectname/misc
+    /projectname/projectname
+    /projectname/projectname/library
+
+Files
+=====
+
+.. code-block:: bash
+
+    /projectname/.gitignore
+    /projectname/LICENSE
+    /projectname/README.md
+    /projectname/requirements.txt
+    /projectname/setup.py
+    /projectname/TODO.md
+    /projectname/docsource/LICENSE
+    /projectname/docsource/make.bat
+    /projectname/docsource/makedocs.sh
+    /projectname/docsource/Makefile
+    /projectname/docsource/README.md
+    /projectname/docsource/sourceconf.py
+    /projectname/docsource/sourceindex.rst
+    /projectname/docsource/TODO.md
+    /projectname/source/releasenotes0.0.1-changelog.rst
+    /projectname/source/_staticfavicon.ico
+    /projectname/source/_staticlogo.png
+    /projectname/source/usageerrors.rst
+    /projectname/source/usagemanual.rst
+    /projectname/source/usagequickstart.rst
+    /projectname/source/usageuse_cases.rst
+    /projectname/source/usagewarnings.rst
+    /projectname/projectname/__init__.py
+    /projectname/projectname/projectname.py
