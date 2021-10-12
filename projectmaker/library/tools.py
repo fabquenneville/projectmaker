@@ -314,15 +314,23 @@ def make_docs(path, projectowner, projectname):
     for folder in origfolders:
         files = os.listdir(folder)
         for filename in files:
+            # Skipping some files and all folders
             if filename[-4:] in [".git", ]:
                 continue
             if filename[-10:] in [".gitignore", ]:
                 continue
             if not os.path.isfile(os.path.join(folder, filename)):
                 continue
+            
+            # Correcting folders missing the slash
+            newpath = path + "docsource/" + folder.replace(templatespath, "")[1:]
+            if not newpath[-1] == "/":
+                newpath += "/"
+            
+            # Copying the files filled
             if not copyfilled(
                 pathin          = folder + "/" + filename,
-                pathout         = path + "docsource/" + folder.replace(templatespath, "")[1:] + filename,
+                pathout         = newpath + filename,
                 projectname     = projectname,
                 projectowner    = projectowner
             ):
