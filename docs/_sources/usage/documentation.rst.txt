@@ -54,6 +54,11 @@ Files
     /projectname/docsource/source/usage/use_cases.rst
     /projectname/docsource/source/usage/warnings.rst
 
+* /projectname/docsource/make.bat: This is 
+* /projectname/docsource/makedocs.sh
+* /projectname/docsource/Makefile
+* /projectname/docsource/source/conf.py
+
 
 
 makedocs.sh
