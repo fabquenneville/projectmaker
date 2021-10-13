@@ -45,17 +45,17 @@ Files
     /projectname/docsource/makedocs.sh
     /projectname/docsource/Makefile
     /projectname/docsource/README.md
-    /projectname/docsource/sourceconf.py
-    /projectname/docsource/sourceindex.rst
     /projectname/docsource/TODO.md
-    /projectname/source/releasenotes0.0.1-changelog.rst
-    /projectname/source/_staticfavicon.ico
-    /projectname/source/_staticlogo.png
-    /projectname/source/usageerrors.rst
-    /projectname/source/usagemanual.rst
-    /projectname/source/usagequickstart.rst
-    /projectname/source/usageuse_cases.rst
-    /projectname/source/usagewarnings.rst
+    /projectname/docsource/source/conf.py
+    /projectname/docsource/source/index.rst
+    /projectname/docsource/source/releasenotes/0.0.1-changelog.rst
+    /projectname/docsource/source/_static/favicon.ico
+    /projectname/docsource/source/_static/logo.png
+    /projectname/docsource/source/usage/errors.rst
+    /projectname/docsource/source/usage/manual.rst
+    /projectname/docsource/source/usage/quickstart.rst
+    /projectname/docsource/source/usage/use_cases.rst
+    /projectname/docsource/source/usage/warnings.rst
     /projectname/projectname/__init__.py
     /projectname/projectname/projectname.py
 
@@ -74,7 +74,6 @@ Folders
 
 .. code-block:: bash
 
-    /projectname
     /projectname/docs
     /projectname/docsource
     /projectname/docsource/source
@@ -114,8 +113,8 @@ Files
     /projectname/docsource/source/usage/quickstart.rst
     /projectname/docsource/source/usage/use_cases.rst
     /projectname/docsource/source/usage/warnings.rst
-    /projectname/docsource/source/css/default.css
-    /projectname/docsource/source/javascript/default.js
-    /projectname/docsource/source/php/functions_builds.php
-    /projectname/docsource/source/php/functions.php
-    /projectname/docsource/source/www/index.php
+    /projectname/projectname/library/css/default.css
+    /projectname/projectname/library/javascript/default.js
+    /projectname/projectname/library/php/functions_builds.php
+    /projectname/projectname/library/php/functions.php
+    /projectname/projectname/www/index.php

@@ -23,6 +23,7 @@ The source code can be found on `GitHub <https://github.com/fabquenneville/proje
    usage/quickstart
    usage/manual
    usage/file_structure
+   usage/documentation
    usage/use_cases
    usage/errors
    
