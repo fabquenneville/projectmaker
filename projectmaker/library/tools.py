@@ -335,6 +335,11 @@ def make_docs(path, projectowner, projectname):
                 projectowner    = projectowner
             ):
                 return False
+            if filename in ["makedocs", "make.bat", "Makefile", "conf.py"]:
+                st = os.stat(newpath + filename)
+                os.chmod(newpath + filename, st.st_mode | stat.S_IXUSR | stat.S_IXGRP)
+                print(f"Gave executable permission to {filename}")
+
     return True
 
 def copyfilled(pathin, pathout, projectowner = False, projectname = False, projectyear = False):
