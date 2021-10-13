@@ -36,22 +36,35 @@
             
   <div class="section" id="use-cases">
 <h1>Use cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h1>
-<p>The main reasons to use projectmaker would be the following:</p>
+<p>This is a tool used to make my new projects / modules / website file and folder structure:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#cmd1"><span class="std std-ref">Do this</span></a> do this:</p></li>
-<li><p><a class="reference internal" href="#cmd2"><span class="std std-ref">Do that</span></a> do that:</p></li>
+<li><p><a class="reference internal" href="#python"><span class="std std-ref">Make new Python module / application</span></a></p></li>
+<li><p><a class="reference internal" href="#php"><span class="std std-ref">Make a new php website</span></a></p></li>
 </ul>
-<div class="section" id="do-this">
-<span id="cmd1"></span><h2>Do this<a class="headerlink" href="#do-this" title="Permalink to this headline">¶</a></h2>
-<p>By running this command you can do this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker option -foo:bar -dirs:/mnt/foo/
+<p>See the <a class="reference internal" href="manual.html"><span class="doc">Manual</span></a> for more details on the options and the default options.</p>
+<div class="section" id="make-new-python-module-application">
+<span id="python"></span><h2>Make new Python module / application<a class="headerlink" href="#make-new-python-module-application" title="Permalink to this headline">¶</a></h2>
+<p>This is a command used to make a new project called project0 with:</p>
+<ul class="simple">
+<li><p>A <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx documentation</a> and a script to prepare releases</p></li>
+<li><p>A template <a class="reference external" href="https://docs.python.org/3/distutils/setupscript.html">setup script</a></p></li>
+<li><p>A folder and file structure</p></li>
+<li><p>A git repository with the first commits done and pushed</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./projectmaker.py -path:/home/username/workplace/ -name:project0 -owner:<span class="s2">&quot;John Doe&quot;</span> -license:gpl3 -language:python -git:git@github.com:johndoe/project0.git
 </pre></div>
 </div>
 </div>
-<div class="section" id="do-that">
-<span id="cmd2"></span><h2>Do that<a class="headerlink" href="#do-that" title="Permalink to this headline">¶</a></h2>
-<p>By running that command you can do that:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker option -bar:foo -dirs:/mnt/foo/
+<div class="section" id="make-a-new-php-website">
+<span id="php"></span><h2>Make a new php website<a class="headerlink" href="#make-a-new-php-website" title="Permalink to this headline">¶</a></h2>
+<p>This is a command used to make a new site called site0 with:</p>
+<ul class="simple">
+<li><p>A folder and file structure</p></li>
+<li><p>A basic hello world page with liked libraries in css, javascript and php</p></li>
+<li><p>The Font-Awesome submodule</p></li>
+<li><p>A git repository with the first commits done and pushed</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./projectmaker.py -path:/home/username/workplace/ -name:site0 -owner:<span class="s2">&quot;John Doe&quot;</span> -license:none -language:php -docs:none -readme:none -git:git@github.com:johndoe/site0.git
 </pre></div>
 </div>
 </div>
@@ -83,8 +96,8 @@
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="file_structure.html">File structure</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Use cases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#do-this">Do this</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#do-that">Do that</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-new-python-module-application">Make new Python module / application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-a-new-php-website">Make a new php website</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a></li>

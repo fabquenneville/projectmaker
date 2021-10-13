@@ -2,30 +2,42 @@
 Use cases
 =========
 
-The main reasons to use projectmaker would be the following:
+This is a tool used to make my new projects / modules / website file and folder structure:
 
-* :ref:`cmd1` do this:
-* :ref:`cmd2` do that:
+* :ref:`python`
+* :ref:`php`
 
-.. _cmd1:
+See the :doc:`manual` for more details on the options and the default options.
 
-Do this
--------
+.. _python:
 
-By running this command you can do this:
+Make new Python module / application
+------------------------------------
 
-.. code-block:: bash
+This is a command used to make a new project called project0 with:
 
-    projectmaker option -foo:bar -dirs:/mnt/foo/
-
-.. _cmd2:
-
-Do that
--------
-
-By running that command you can do that:
+* A `sphinx documentation <https://www.sphinx-doc.org/en/master/>`_ and a script to prepare releases
+* A template `setup script <https://docs.python.org/3/distutils/setupscript.html>`_
+* A folder and file structure
+* A git repository with the first commits done and pushed
 
 .. code-block:: bash
 
-    projectmaker option -bar:foo -dirs:/mnt/foo/
+    ./projectmaker.py -path:/home/username/workplace/ -name:project0 -owner:"John Doe" -license:gpl3 -language:python -git:git@github.com:johndoe/project0.git
+
+.. _php:
+
+Make a new php website
+----------------------
+
+This is a command used to make a new site called site0 with:
+
+* A folder and file structure
+* A basic hello world page with liked libraries in css, javascript and php
+* The Font-Awesome submodule
+* A git repository with the first commits done and pushed
+
+.. code-block:: bash
+
+    ./projectmaker.py -path:/home/username/workplace/ -name:site0 -owner:"John Doe" -license:none -language:php -docs:none -readme:none -git:git@github.com:johndoe/site0.git
 
