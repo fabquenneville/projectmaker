@@ -55,11 +55,11 @@ Files
     /projectname/docsource/source/usage/warnings.rst
 
 * /projectname/docsource/make.bat: This is 
-* /projectname/docsource/makedocs.sh
+* /projectname/docsource/makedocs
 * /projectname/docsource/Makefile
 * /projectname/docsource/source/conf.py
 
+/projectname/docsource/makedocs
+-------------------------------
 
-
-makedocs.sh
------------
+Running ./makedocs will trigger the documentation release process turning the source files in /projectname/docsource into a website in /projectname/docs.

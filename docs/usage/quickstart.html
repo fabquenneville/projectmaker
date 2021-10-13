@@ -54,13 +54,25 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples:<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do this</span>
-projectmaker foo -del -foo:bar -bar:foo
-<span class="c1"># Do that</span>
-projectmaker bar -foo:foo
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a python project without documentation or README.md</span>
+projectmaker.py -path:/home/user/tmp/ -name:projectname -language:python -docs:none -readme:none
+<span class="c1"># Create a python project with documentation, readme but with a gpl3 license</span>
+projectmaker.py -path:/home/user/tmp/ -name:projectname -language:python -license:gpl3
+</pre></div>
+</div>
+</div>
+<div class="section" id="php">
+<h3>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a PHP web project without documentation, README.md or license</span>
+projectmaker.py -path:/home/user/tmp/ -name:projectname -language:php -docs:none -readme:none -license:none
+<span class="c1"># Create a python project with documentation, readme but with a gpl3 license</span>
+projectmaker.py -path:/home/user/tmp/ -name:projectname -language:php -license:gpl3
 </pre></div>
 </div>
 <p>More examples in <a class="reference internal" href="use_cases.html"><span class="doc">Use cases</span></a></p>
+</div>
 </div>
 </div>
 

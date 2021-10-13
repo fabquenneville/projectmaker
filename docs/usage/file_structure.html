@@ -36,14 +36,64 @@
             
   <div class="section" id="file-structure">
 <h1>File structure<a class="headerlink" href="#file-structure" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="example-python-file-structure">
-<h2>Example python file structure<a class="headerlink" href="#example-python-file-structure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="#pythonfs"><span class="std std-ref">Python</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="#pythonfswd"><span class="std std-ref">Without documentation</span></a></p></li>
+<li><p><a class="reference internal" href="#pythonfsd"><span class="std std-ref">With documentation</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="#phpfs"><span class="std std-ref">PHP</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="#phpfswd"><span class="std std-ref">Without documentation</span></a></p></li>
+<li><p><a class="reference internal" href="#phpfsd"><span class="std std-ref">With documentation</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="python">
+<span id="pythonfs"></span><h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="without-documentation">
+<span id="pythonfswd"></span><h3>Without documentation<a class="headerlink" href="#without-documentation" title="Permalink to this headline">¶</a></h3>
+<p>This is the filestructure from running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker.py -path:/home/user/tmp/ -name:projectname -language:python -docs:none
+</pre></div>
+</div>
+<div class="section" id="folders">
+<h4>Folders<a class="headerlink" href="#folders" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname
+/projectname/dist
+/projectname/misc
+/projectname/projectname
+/projectname/projectname/library
+</pre></div>
+</div>
+</div>
+<div class="section" id="files">
+<h4>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname/.gitignore
+/projectname/LICENSE
+/projectname/README.md
+/projectname/requirements.txt
+/projectname/setup.py
+/projectname/TODO.md
+/projectname/projectname/__init__.py
+/projectname/projectname/projectname.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="with-documentation">
+<span id="pythonfsd"></span><h3>With documentation<a class="headerlink" href="#with-documentation" title="Permalink to this headline">¶</a></h3>
 <p>This is the filestructure from running:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker.py -path:/home/user/tmp/ -name:projectname -language:python
 </pre></div>
 </div>
-<div class="section" id="folders">
-<h3>Folders<a class="headerlink" href="#folders" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Folders<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname
 /projectname/dist
 /projectname/docs
@@ -58,8 +108,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="files">
-<h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Files<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname/.gitignore
 /projectname/LICENSE
 /projectname/README.md
@@ -88,14 +138,50 @@
 </div>
 </div>
 </div>
-<div class="section" id="example-php-file-structure">
-<h2>Example php file structure<a class="headerlink" href="#example-php-file-structure" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="php">
+<span id="phpfs"></span><h2>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="phpfswd">
+<span id="id3"></span><h3>Without documentation<a class="headerlink" href="#phpfswd" title="Permalink to this headline">¶</a></h3>
+<p>This is the filestructure from running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker.py -path:/home/user/tmp/ -name:projectname -language:php -docs:none
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h4>Folders<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname/misc
+/projectname/projectname
+/projectname/projectname/library
+/projectname/projectname/library/css
+/projectname/projectname/library/javascript
+/projectname/projectname/library/php
+/projectname/projectname/www
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>Files<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname/.gitignore
+/projectname/LICENSE
+/projectname/README.md
+/projectname/TODO.md
+/projectname/projectname/library/css/default.css
+/projectname/projectname/library/javascript/default.js
+/projectname/projectname/library/php/functions_builds.php
+/projectname/projectname/library/php/functions.php
+/projectname/projectname/www/index.php
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="phpfsd">
+<span id="id6"></span><h3>With documentation<a class="headerlink" href="#phpfsd" title="Permalink to this headline">¶</a></h3>
 <p>This is the filestructure from running:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker.py -path:/home/user/tmp/ -name:projectname -language:php
 </pre></div>
 </div>
-<div class="section" id="id1">
-<h3>Folders<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4>Folders<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname/docs
 /projectname/docsource
 /projectname/docsource/source
@@ -112,15 +198,15 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h3>Files<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h4>Files<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/projectname/.gitignore
 /projectname/LICENSE
 /projectname/README.md
 /projectname/TODO.md
 /projectname/docsource/LICENSE
 /projectname/docsource/make.bat
-/projectname/docsource/makedocs.sh
+/projectname/docsource/makedocs
 /projectname/docsource/Makefile
 /projectname/docsource/README.md
 /projectname/docsource/TODO.md
@@ -140,6 +226,7 @@
 /projectname/projectname/library/php/functions.php
 /projectname/projectname/www/index.php
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -170,8 +257,8 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Manual</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">File structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#example-python-file-structure">Example python file structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-php-file-structure">Example php file structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#php">PHP</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>

@@ -1,9 +1,9 @@
-==========
+##############
 Quickstart
-==========
+##############
 
 Synopsis
---------
+********
 
 .. code-block:: bash
 
@@ -23,13 +23,26 @@ default options are:
 The complete description of the CLI is found in :doc:`manual`.
 
 Examples:
----------
+*********
+
+Python
+------
 
 .. code-block:: bash
 
-    # Do this
-    projectmaker foo -del -foo:bar -bar:foo
-    # Do that
-    projectmaker bar -foo:foo
+    # Create a python project without documentation or README.md
+    projectmaker.py -path:/home/user/tmp/ -name:projectname -language:python -docs:none -readme:none
+    # Create a python project with documentation, readme but with a gpl3 license
+    projectmaker.py -path:/home/user/tmp/ -name:projectname -language:python -license:gpl3
+
+PHP
+---
+
+.. code-block:: bash
+
+    # Create a PHP web project without documentation, README.md or license
+    projectmaker.py -path:/home/user/tmp/ -name:projectname -language:php -docs:none -readme:none -license:none
+    # Create a python project with documentation, readme but with a gpl3 license
+    projectmaker.py -path:/home/user/tmp/ -name:projectname -language:php -license:gpl3
 
 More examples in :doc:`use_cases`
