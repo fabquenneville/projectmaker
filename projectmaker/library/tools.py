@@ -164,6 +164,30 @@ def make_css(path):
         return False
     return True
 
+def make_php(path, projectowner, projectname):
+    ''' Builds the projects basic php files.
+
+    Args:
+        path:           The path of the directory to make.
+        projectowner:   The name of the owner for the project to pre-fill.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
+    templatespath = get_templates_path()
+    make_css(path + projectname + "/library/css/")
+    make_php_libraries(
+        path            = path + projectname + "/library/php/",
+        projectowner    = projectowner,
+        projectname     = projectname
+    )
+    make_empty_file(path + projectname + "/library/javascript/default.js")
+    copyfilled(
+        pathin          = templatespath + ".htaccess",
+        pathout         = path + projectname + '/www/.htaccess',
+    )
+
 def make_php_libraries(path, projectowner, projectname):
     ''' Builds the projects basic php files.
 

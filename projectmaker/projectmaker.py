@@ -3,10 +3,10 @@
 
 # Normal import
 try:
-    from projectmakerpy.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
+    from projectmakerpy.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 # Allow local import for development purposes
 except ModuleNotFoundError:
-    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
+    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 
 
 def main():
@@ -77,12 +77,11 @@ def main():
         )
         make_empty_file(projectpath + "requirements.txt")
     elif arguments["language"] == "php":
-        make_css(projectpath + arguments["name"] + "/library/css/")
-        make_php_libraries(
-            path            = projectpath + arguments["name"] + "/library/php/",
+        make_php(
+            path            = projectpath,
             projectowner    = arguments["owner"],
-            projectname     = arguments["name"])
-        make_empty_file(projectpath + arguments["name"] + "/library/javascript/default.js")
+            projectname     = arguments["name"]
+        )
 
     # Main script
     if arguments["language"] == "python":
