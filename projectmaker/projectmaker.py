@@ -3,10 +3,10 @@
 
 # Normal import
 try:
-    from projectmakerpy.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git
+    from projectmakerpy.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 # Allow local import for development purposes
 except ModuleNotFoundError:
-    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git
+    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_css, make_php_libraries, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 
 
 def main():
@@ -55,6 +55,14 @@ def main():
         make_directory(projectpath + "docs")
         make_directory(projectpath + "docsource")
         make_docs(
+            path            = projectpath, 
+            projectowner    = arguments["owner"], 
+            projectname     = arguments["name"]
+        )
+    
+    # config.ini
+    if arguments["config"]:
+        make_config(
             path            = projectpath, 
             projectowner    = arguments["owner"], 
             projectname     = arguments["name"]

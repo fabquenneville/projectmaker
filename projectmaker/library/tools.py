@@ -26,6 +26,7 @@ def load_arguments():
         "license":"mit",
         "readme":True,
         "docs":"sphinx",
+        "config":True,
         "git":False,
         "owner":str(),
     }
@@ -51,6 +52,10 @@ def load_arguments():
             arguments["docs"] = arg[6:]
             if arguments["docs"] == "none":
                 arguments["docs"] = False
+        elif "-config:" in arg:
+            arguments["config"] = arg[8:]
+            if arguments["config"] == "none":
+                arguments["config"] = False
         elif "-git:" in arg:
             arguments["git"] = arg[5:]
             if arg[5:] == "none":
@@ -214,6 +219,28 @@ def make_license(path, projectowner, license = False):
         pathout         = path + 'LICENSE',
         projectowner    = projectowner,
         projectyear     = str(datetime.now().year)
+    ):
+        return False
+    return True
+
+def make_config(path, projectowner, projectname):
+    ''' Builds the projects basic php files.
+
+    Args:
+        path:           The path of the directory to make.
+        projectowner:   The name of the owner for the project to pre-fill.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
+    templatespath = get_templates_path()
+
+    if not copyfilled(
+        pathin          = templatespath + "config.ini",
+        pathout         = path + "config.ini",
+        projectowner    = projectowner,
+        projectname     = projectname
     ):
         return False
     return True
