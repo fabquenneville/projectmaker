@@ -182,7 +182,10 @@ def make_php(path, projectowner, projectname):
         projectowner    = projectowner,
         projectname     = projectname
     )
-    make_empty_file(path + projectname + "/library/javascript/default.js")
+    copyfilled(
+        pathin          = templatespath + "default.js",
+        pathout         = path + projectname + '/library/javascript/default.js',
+    )
     copyfilled(
         pathin          = templatespath + ".htaccess",
         pathout         = path + projectname + '/www/.htaccess',
