@@ -17,6 +17,8 @@ Instalation instructions are found [here]().
 
 ## Usage
 
+See the [manual](https://fabquenneville.github.io/projectmaker/usage/manual.html) or [examples](https://fabquenneville.github.io/projectmaker/usage/quickstart.html).
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

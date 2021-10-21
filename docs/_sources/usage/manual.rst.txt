@@ -12,7 +12,7 @@ Synopsis
 
 .. code-block:: bash
 
-    projectmaker    -path: [-name:] [-owner:] [-language:python,php]
+    projectmaker    -path: [-name:] [-owner:] [-language:python,php,phpscripts]
                     [-license:mit,gpl2,gpl3,moz2,apache,none]
                     [-readme:none] [-docs:sphinx,none]
                     [-components:fontawesome,none] [-git:]
@@ -54,8 +54,10 @@ The name of the owner for the project to pre-fill.
 
 -language:
 ==========
-[python,php]
+[python,php,phpscripts]
 The programming language of the project.
+
+PHP has two options: php or phpscripts with the former preparing for a php website and the later for php scripts.
 
 -license:
 =========

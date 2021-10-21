@@ -167,6 +167,33 @@ def make_css(path):
         return False
     return True
 
+# def make_php(path, projectowner, projectname):
+#     ''' Builds the projects basic php files.
+
+#     Args:
+#         path:           The path of the directory to make.
+#         projectowner:   The name of the owner for the project to pre-fill.
+#         projectname:    The name for the project to pre-fill.
+
+#     Returns:
+#         boolean: The success of the operation
+#     '''
+#     templatespath = get_templates_path()
+#     make_css(path + projectname + "/library/css/")
+#     make_php_libraries(
+#         path            = path + projectname + "/library/php/",
+#         projectowner    = projectowner,
+#         projectname     = projectname
+#     )
+#     copyfilled(
+#         pathin          = templatespath + "default.js",
+#         pathout         = path + projectname + '/library/javascript/default.js',
+#     )
+#     copyfilled(
+#         pathin          = templatespath + ".htaccess",
+#         pathout         = path + projectname + '/www/.htaccess',
+#     )
+
 def make_php(path, projectowner, projectname):
     ''' Builds the projects basic php files.
 
@@ -179,11 +206,22 @@ def make_php(path, projectowner, projectname):
         boolean: The success of the operation
     '''
     templatespath = get_templates_path()
+    make_directory(path + projectname + "/library/javascript")
+    make_directory(path + projectname + "/library/css")
+    make_directory(path + projectname + "/library/php")
+    make_directory(path + projectname + "/www")
     make_css(path + projectname + "/library/css/")
-    make_php_libraries(
-        path            = path + projectname + "/library/php/",
-        projectowner    = projectowner,
-        projectname     = projectname
+    copyfilled(
+        pathin          = templatespath + "functions.php",
+        pathout         = path + projectname + "/library/php/functions.php",
+        projectname     = projectname,
+        projectowner    = projectowner
+    )
+    copyfilled(
+        pathin          = templatespath + "functions_builds.php",
+        pathout         = path + projectname + "/library/php/functions_builds.php",
+        projectname     = projectname,
+        projectowner    = projectowner
     )
     copyfilled(
         pathin          = templatespath + "default.js",
@@ -193,8 +231,14 @@ def make_php(path, projectowner, projectname):
         pathin          = templatespath + ".htaccess",
         pathout         = path + projectname + '/www/.htaccess',
     )
+    copyfilled(
+        pathin          = templatespath + "index.php",
+        pathout         = path + projectname + "/www/index.php",
+        projectname     = projectname
+    )
+    chmodx(path + projectname + "/www/index.php")
 
-def make_php_libraries(path, projectowner, projectname):
+def make_php_scripts(path, projectowner, projectname):
     ''' Builds the projects basic php files.
 
     Args:
@@ -206,19 +250,19 @@ def make_php_libraries(path, projectowner, projectname):
         boolean: The success of the operation
     '''
     templatespath = get_templates_path()
-    if not copyfilled(
+    make_directory(path + projectname + "/library/php")
+    copyfilled(
         pathin          = templatespath + "functions.php",
-        pathout         = path + 'functions.php',
+        pathout         = path + projectname + "/library/php/functions.php",
         projectname     = projectname,
         projectowner    = projectowner
-    ) or not copyfilled(
-        pathin          = templatespath + "functions_builds.php",
-        pathout         = path + 'functions_builds.php',
-        projectname     = projectname,
-        projectowner    = projectowner
-    ):
-        return False
-    return True
+    )
+    copyfilled(
+        pathin          = templatespath + "script.php",
+        pathout         = path + projectname + "/" + projectname +".php",
+        projectname     = projectname
+    )
+    chmodx(path + projectname + "/" + projectname +".php")
 
 def make_license(path, projectowner, license = False):
     ''' Builds the projects basic php files.
@@ -298,7 +342,7 @@ def make_setup(path, projectowner, projectname):
         return False
     return True
 
-def make_main_python(path, projectname):
+def make_python(path, projectowner, projectname):
     ''' Builds a basic pre-filled hello world python module and its __init__.py.
 
     Args:
@@ -309,10 +353,19 @@ def make_main_python(path, projectname):
         boolean: The success of the operation
     '''
     templatespath = get_templates_path()
-    fileoutpath = path + projectname + '.py'
 
+    make_directory(path + "dist")
+    make_setup(
+        path            = path,
+        projectowner    = projectowner,
+        projectname     = projectname
+    )
+    make_empty_file(path + "requirements.txt")
 
-    if not copyfilled(templatespath + "helloworld.py", fileoutpath):
+    if not copyfilled(
+        templatespath + "helloworld.py",
+        path + projectname + "/" + projectname + '.py'
+    ):
         return False
 
     try:
@@ -322,26 +375,6 @@ def make_main_python(path, projectname):
         return False
     print(f"Successfully created {path + '__init__.py'}")
     return True
-
-def make_main_php(path, projectname):
-    ''' Builds a basic pre-filled hello world php script.
-
-    Args:
-        path:           The path of the directory to make.
-        projectname:    The name for the project to pre-fill.
-
-    Returns:
-        boolean: The success of the operation
-    '''
-    templatespath = get_templates_path()
-    if copyfilled(
-        pathin          = templatespath + "index.php",
-        pathout         = path + 'index.php',
-        projectname     = projectname
-    ):
-        return False
-    return True
-
 
 def make_docs(path, projectowner, projectname):
     ''' Builds a basic sphinx project documentation and the shell scripts to manage the documentation for release.
@@ -393,11 +426,15 @@ def make_docs(path, projectowner, projectname):
             ):
                 return False
             if filename in ["makedocs", "make.bat", "Makefile", "conf.py"]:
-                st = os.stat(newpath + filename)
-                os.chmod(newpath + filename, st.st_mode | stat.S_IXUSR | stat.S_IXGRP)
-                print(f"Gave executable permission to {filename}")
+                chmodx(newpath + filename)
 
     return True
+
+def chmodx(filepath):
+    st = os.stat(filepath)
+    os.chmod(filepath, st.st_mode | stat.S_IXUSR | stat.S_IXGRP)
+    print(f"Gave executable permission to {os.path.basename(filepath)}")
+
 
 def copyfilled(pathin, pathout, projectowner = False, projectname = False, projectyear = False):
     ''' Copies a file template filled witht the information passed as parameters.
@@ -430,9 +467,7 @@ def copyfilled(pathin, pathout, projectowner = False, projectname = False, proje
             print(f"Creating {pathout} failed")
             return False
     if pathout[-2:] in ["sh", "py"] or pathout[-3:] in ["bat"]:
-        st = os.stat(pathout)
-        os.chmod(pathout, st.st_mode | stat.S_IXUSR | stat.S_IXGRP)
-        print(f"Gave executable permission to {pathout}")
+        chmodx(pathout)
     print(f"Successfully created {pathout}")
     return True
 

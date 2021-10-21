@@ -3,10 +3,10 @@
 
 # Normal import
 try:
-    from projectmakerpy.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
+    from projectmaker.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 # Allow local import for development purposes
 except ModuleNotFoundError:
-    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_main_python, make_main_php, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
+    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 
 
 def main():
@@ -27,13 +27,6 @@ def main():
     make_directory(projectpath + "misc")
     make_directory(projectpath + arguments["name"])
     make_directory(projectpath + arguments["name"] + "/library")
-    if arguments["language"] == "python":
-        make_directory(projectpath + "dist")
-    elif arguments["language"] == "php":
-        make_directory(projectpath + arguments["name"] + "/library/javascript")
-        make_directory(projectpath + arguments["name"] + "/library/css")
-        make_directory(projectpath + arguments["name"] + "/library/php")
-        make_directory(projectpath + arguments["name"] + "/www")
 
     # Making components
     make_gitignore(projectpath)
@@ -68,28 +61,27 @@ def main():
             projectname     = arguments["name"]
         )
 
-    # Misc language dependent
+    # Main script
     if arguments["language"] == "python":
-        make_setup(
+        make_python(
             path            = projectpath,
             projectowner    = arguments["owner"],
             projectname     = arguments["name"]
         )
-        make_empty_file(projectpath + "requirements.txt")
     elif arguments["language"] == "php":
         make_php(
             path            = projectpath,
             projectowner    = arguments["owner"],
             projectname     = arguments["name"]
         )
+    elif arguments["language"] == "phpscripts":
+        make_php_scripts(
+            path            = projectpath,
+            projectowner    = arguments["owner"],
+            projectname     = arguments["name"]
+        )
 
-    # Main script
-    if arguments["language"] == "python":
-        make_main_python(projectpath + arguments["name"] + "/", arguments["name"])
-    elif arguments["language"] == "php":
-        make_main_php(projectpath + arguments["name"] + "/www/", arguments["name"])
-
-    # Git
+    # Git creation and commiting of the newly created project
     if arguments["git"]:
         make_git(
             path        = projectpath,
