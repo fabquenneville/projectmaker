@@ -9,7 +9,8 @@ Synopsis
 
     projectmaker    -path: [-name:] [-owner:] [-language:python,php]
                     [-license:mit,gpl2,gpl3,moz2,apache,none]
-                    [-readme:none] [-docs:sphinx,none] [-git:]
+                    [-readme:none] [-docs:sphinx,none]
+                    [-components:fontawesome,none] [-git:]
 
 default options are:
 
@@ -19,6 +20,7 @@ default options are:
     -license:mit
     -readme:
     -docs:sphinx
+    -components:none
 
 The complete description of the CLI is found in :doc:`manual`.
 

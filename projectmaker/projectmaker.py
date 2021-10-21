@@ -95,7 +95,8 @@ def main():
             path        = projectpath,
             url         = arguments["git"],
             language    = arguments["language"],
-            projectname = arguments["name"]
+            projectname = arguments["name"],
+            components  = arguments["components"]
         )
 
 

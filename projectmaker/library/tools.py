@@ -24,6 +24,7 @@ def load_arguments():
         "name":str(),
         "language":"python",
         "license":"mit",
+        "components":list(),
         "readme":True,
         "docs":"sphinx",
         "config":True,
@@ -45,6 +46,8 @@ def load_arguments():
             arguments["license"] = arg[9:]
             if arguments["license"] == "none":
                 arguments["license"] = False
+        elif "-components:" in arg:
+            arguments["components"] += arg[12:].split(",")
         elif "-readme:" in arg:
             if arg[8:] == "none":
                 arguments["readme"] = False
@@ -443,7 +446,7 @@ def get_templates_path():
     '''
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/templates/"
 
-def make_git(path, url, language, projectname):
+def make_git(path, url, language, projectname, components = list()):
     ''' Initiate a basic git repository and pre-attach some useful submodules for some languages.
 
     Args:
@@ -460,13 +463,14 @@ def make_git(path, url, language, projectname):
     repo.index.commit("initial commit")
     print(f"Commited to initial git repository.")
     if language == "php":
-        git.Submodule.add(
-            repo = repo,
-            url = "git@github.com:FortAwesome/Font-Awesome.git",
-            name = "Font-Awesome",
-            path = path + projectname + "/www/Font-Awesome"
-        )
-        repo.index.commit("Added Font-Awesome submodule")
-        print(f"Added Font-Awesome submodule to git repository.")
+        if "fontawesome" in components:
+            print(f"Adding Font-Awesome submodule to git repository.")
+            git.Submodule.add(
+                repo = repo,
+                url = "git@github.com:FortAwesome/Font-Awesome.git",
+                name = "Font-Awesome",
+                path = path + projectname + "/www/Font-Awesome"
+            )
+            repo.index.commit("Added Font-Awesome submodule")
     repo.create_remote("origin", url=url)
     repo.remote("origin").push("main")

@@ -14,7 +14,8 @@ Synopsis
 
     projectmaker    -path: [-name:] [-owner:] [-language:python,php]
                     [-license:mit,gpl2,gpl3,moz2,apache,none]
-                    [-readme:none] [-docs:sphinx,none] [-git:]
+                    [-readme:none] [-docs:sphinx,none]
+                    [-components:fontawesome,none] [-git:]
 
 default options are:
 
@@ -24,6 +25,7 @@ default options are:
     -license:mit
     -readme:
     -docs:sphinx
+    -components:none
 
 Description
 -----------
@@ -69,6 +71,11 @@ Weither to add a README.md to the project.
 [sphinx,none]
 Weither to add a documentation template to the project, defaults to a sphinx documentation and related scripts.
 
+-components:
+============
+[fontawesome,none]
+Weither the Font-Awesome submodule.
+
 -git:
 =====
 The url of a blank git repository where this project will be hosted and where to push the first commits.
@@ -84,6 +91,7 @@ Fellow projects used by projectmaker
 * `Git source code managment <https://git-scm.com/doc>`_
 * `Sphinx documentation generator <https://www.sphinx-doc.org/en/master/>`_
 * `docsource <https://github.com/fabquenneville/docsource>`_
+* `Font-Awesome <https://fontawesome.com/>`_
 
 Licenses
 ========
