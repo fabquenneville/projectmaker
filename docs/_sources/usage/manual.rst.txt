@@ -12,9 +12,10 @@ Synopsis
 
 .. code-block:: bash
 
-    projectmaker    -path: [-name:] [-owner:] [-language:python,php,phpscripts]
+    projectmaker    -path: [-name:] [-owner:]
+                    [-language:python,php,phpscripts,phplibrary]
                     [-license:mit,gpl2,gpl3,moz2,apache,none]
-                    [-readme:none] [-docs:sphinx,none]
+                    [-readme:none] [-docs:sphinx,none] [-config:none]
                     [-components:fontawesome,none] [-git:]
 
 default options are:
@@ -54,10 +55,10 @@ The name of the owner for the project to pre-fill.
 
 -language:
 ==========
-[python,php,phpscripts]
+[python,php,phpscripts,phplibrary]
 The programming language of the project.
 
-PHP has two options: php or phpscripts with the former preparing for a php website and the later for php scripts.
+PHP has three options: php, phpscripts, phplibrary.
 
 -license:
 =========
@@ -72,6 +73,11 @@ Weither to add a README.md to the project.
 ======
 [sphinx,none]
 Weither to add a documentation template to the project, defaults to a sphinx documentation and related scripts.
+
+-config:
+========
+[none]
+Weither to add a configuration file to the project, defaults to a config.ini file in the main directory.
 
 -components:
 ============

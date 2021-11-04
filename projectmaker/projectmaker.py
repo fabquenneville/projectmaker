@@ -3,10 +3,10 @@
 
 # Normal import
 try:
-    from projectmaker.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
+    from projectmaker.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_php_library, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 # Allow local import for development purposes
 except ModuleNotFoundError:
-    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
+    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_php_library, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 
 
 def main():
@@ -23,10 +23,7 @@ def main():
     # Setting variables    
     projectpath = arguments["path"] + arguments["name"] + "/"
 
-    # Making main folders
     make_directory(projectpath + "misc")
-    make_directory(projectpath + arguments["name"])
-    make_directory(projectpath + arguments["name"] + "/library")
 
     # Making components
     make_gitignore(projectpath)
@@ -76,6 +73,12 @@ def main():
         )
     elif arguments["language"] == "phpscripts":
         make_php_scripts(
+            path            = projectpath,
+            projectowner    = arguments["owner"],
+            projectname     = arguments["name"]
+        )
+    elif arguments["language"] == "phplibrary":
+        make_php_library(
             path            = projectpath,
             projectowner    = arguments["owner"],
             projectname     = arguments["name"]

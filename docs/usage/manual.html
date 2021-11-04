@@ -42,9 +42,10 @@
 </div>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker    -path: <span class="o">[</span>-name:<span class="o">]</span> <span class="o">[</span>-owner:<span class="o">]</span> <span class="o">[</span>-language:python,php,phpscripts<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>projectmaker    -path: <span class="o">[</span>-name:<span class="o">]</span> <span class="o">[</span>-owner:<span class="o">]</span>
+                <span class="o">[</span>-language:python,php,phpscripts,phplibrary<span class="o">]</span>
                 <span class="o">[</span>-license:mit,gpl2,gpl3,moz2,apache,none<span class="o">]</span>
-                <span class="o">[</span>-readme:none<span class="o">]</span> <span class="o">[</span>-docs:sphinx,none<span class="o">]</span>
+                <span class="o">[</span>-readme:none<span class="o">]</span> <span class="o">[</span>-docs:sphinx,none<span class="o">]</span> <span class="o">[</span>-config:none<span class="o">]</span>
                 <span class="o">[</span>-components:fontawesome,none<span class="o">]</span> <span class="o">[</span>-git:<span class="o">]</span>
 </pre></div>
 </div>
@@ -83,9 +84,9 @@
 </div>
 <div class="section" id="language">
 <h3>-language:<a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h3>
-<p>[python,php,phpscripts]
+<p>[python,php,phpscripts,phplibrary]
 The programming language of the project.</p>
-<p>PHP has two options: php or phpscripts with the former preparing for a php website and the later for php scripts.</p>
+<p>PHP has three options: php, phpscripts, phplibrary.</p>
 </div>
 <div class="section" id="license">
 <h3>-license:<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h3>
@@ -100,6 +101,11 @@ The acronym of the license to add to the project, defaults to the MIT license.</
 <h3>-docs:<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h3>
 <p>[sphinx,none]
 Weither to add a documentation template to the project, defaults to a sphinx documentation and related scripts.</p>
+</div>
+<div class="section" id="config">
+<h3>-config:<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h3>
+<p>[none]
+Weither to add a configuration file to the project, defaults to a config.ini file in the main directory.</p>
 </div>
 <div class="section" id="components">
 <h3>-components:<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h3>

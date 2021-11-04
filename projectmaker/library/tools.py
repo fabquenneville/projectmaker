@@ -206,6 +206,8 @@ def make_php(path, projectowner, projectname):
         boolean: The success of the operation
     '''
     templatespath = get_templates_path()
+    make_directory(path + projectname)
+    make_directory(path + projectname + "/library")
     make_directory(path + projectname + "/library/javascript")
     make_directory(path + projectname + "/library/css")
     make_directory(path + projectname + "/library/php")
@@ -250,6 +252,8 @@ def make_php_scripts(path, projectowner, projectname):
         boolean: The success of the operation
     '''
     templatespath = get_templates_path()
+    make_directory(path + projectname)
+    make_directory(path + projectname + "/library")
     make_directory(path + projectname + "/library/php")
     copyfilled(
         pathin          = templatespath + "functions.php",
@@ -263,6 +267,33 @@ def make_php_scripts(path, projectowner, projectname):
         projectname     = projectname
     )
     chmodx(path + projectname + "/" + projectname +".php")
+
+def make_php_library(path, projectowner, projectname):
+    ''' Builds the projects basic php files.
+
+    Args:
+        path:           The path of the directory to make.
+        projectowner:   The name of the owner for the project to pre-fill.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
+    templatespath = get_templates_path()
+    make_directory(path + "/library")
+    # make_directory(path + projectname + "/library/php")
+    copyfilled(
+        pathin          = f"{templatespath}phpclass.php",
+        pathout         = f"{path}/library/{projectname}.php",
+        projectname     = projectname,
+        projectowner    = projectowner
+    )
+    # copyfilled(
+    #     pathin          = templatespath + "script.php",
+    #     pathout         = path + projectname + "/" + projectname +".php",
+    #     projectname     = projectname
+    # )
+    # chmodx(path + projectname + "/" + projectname +".php")
 
 def make_license(path, projectowner, license = False):
     ''' Builds the projects basic php files.
@@ -354,6 +385,8 @@ def make_python(path, projectowner, projectname):
     '''
     templatespath = get_templates_path()
 
+    make_directory(path + projectname)
+    make_directory(path + projectname + "/library")
     make_directory(path + "dist")
     make_setup(
         path            = path,
