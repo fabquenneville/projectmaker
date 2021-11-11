@@ -10,56 +10,57 @@ function build_top($options = []){
         $output     :   The build module
     */
     $options = array_replace([
-        "page"              =>  "index",
-        "lang"              =>  "en"
+        'page'              =>  'index',
+        'lang'              =>  'en'
     ], $options);
     
-    $output = "";
+    $output = '';
     $strings = array(
-        "fr" => array(
-            "title" => 'Bonjour projectname!',
+        'fr' => array(
+            'title' => 'Bonjour projectname!',
         ),
-        "en" => array(
-            "title" => 'Hello projectname!',
+        'en' => array(
+            'title' => 'Hello projectname!',
         )
     );
     
-    $output .= '<!DOCTYPE html>
-    <html lang="'.$options["lang"].'">
+    $output .= "
+    <!DOCTYPE html>
+    <html lang='$options[lang]'>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="./Font-Awesome/css/all.css" rel="stylesheet">';
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link href='./Font-Awesome/css/all.css' rel='stylesheet'>";
     
     # Assembling JS server side
     $output .= '<script>';
-    $output .= file_get_contents( "../library/javascript/default.js");
+    $output .= file_get_contents( '../library/javascript/default.js');
     $output .= '</script>';    
 
     # Assembling CSS server side
     $output .= '<!-- css --> <style>';
-    $output .= file_get_contents( "../library/css/default.css");
+    $output .= file_get_contents( '../library/css/default.css');
     $output .= '</style>';
 
-    $output .= '
+    $title = $strings[$options['lang']]['title'];
+    $output .= "
         <!-- favicons -->
-        <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="./img/favicon_io/site.webmanifest">
+        <link rel='apple-touch-icon' sizes='180x180' href='./img/favicon_io/apple-touch-icon.png'>
+        <link rel='icon' type='image/png' sizes='32x32' href='./img/favicon_io/favicon-32x32.png'>
+        <link rel='icon' type='image/png' sizes='16x16' href='./img/favicon_io/favicon-16x16.png'>
+        <link rel='manifest' href='./img/favicon_io/site.webmanifest'>
 
-        <title>'.$strings[$options["lang"]]["title"].'</title>
-        </head>';
-    $output .= '<body>
+        <title>$title</title>
+        </head><body>
         <header>
-            <h1 class="hide_me">'.$strings[$options["lang"]]["title"].'</h1>
+            <h1 class='hide_me'>$title</h1>
             <div>
                 <nav>
-                    <a href="./"><i class="fas fa-home"></i> Home</a>
+                    <a href='./'><i class='fas fa-home'></i> Home</a>
                 </nav>
             </div>
         </header>
-    <main>';
+    <main>";
     return $output;
 }
 
@@ -74,23 +75,29 @@ function build_end($options = []){
         $output     :	The built page
     */
     $options = array_replace([
-        "page"          =>  "index",
-        "lang"          =>  "en"
+        'page'          =>  'index',
+        'lang'          =>  'en'
     ], $options);
 
-    $output = "";
+    $output = '';
     $strings = array(
-        "fr" => array(
-            "name" => 'projectowner',
+        'fr' => array(
+            'name' => 'projectowner',
         ),
-        "en" => array(
-            "name" => 'projectowner',
+        'en' => array(
+            'name' => 'projectowner',
         )
     );
-    $output .= '</main>
+
+    $name = $strings[$options['lang']]['name'];
+    $date = date('Y');
+    $output .= "
+        </main>
         <footer>
-        <span id="copyright_footer">projectname by '.$strings[$options["lang"]]["name"].' - © '.date("Y").'</span>
-        </footer></body></html>';
+            <span id='copyright_footer'>projectname by $name - © $date</span>
+        </footer>
+    </body>
+    </html>";
     return $output;
 }
 
