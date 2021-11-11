@@ -15,14 +15,14 @@ function build_top($options = []){
     ], $options);
     
     $output = '';
-    $strings = array(
-        'fr' => array(
+    $strings = [
+        'fr' => [
             'title' => 'Bonjour projectname!',
-        ),
-        'en' => array(
+        ],
+        'en' => [
             'title' => 'Hello projectname!',
-        )
-    );
+        ]
+    ];
     
     $output .= "
     <!DOCTYPE html>
@@ -80,14 +80,14 @@ function build_end($options = []){
     ], $options);
 
     $output = '';
-    $strings = array(
-        'fr' => array(
+    $strings = [
+        'fr' => [
             'name' => 'projectowner',
-        ),
-        'en' => array(
+        ],
+        'en' => [
             'name' => 'projectowner',
-        )
-    );
+        ]
+    ];
 
     $name = $strings[$options['lang']]['name'];
     $date = date('Y');
