@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="projectmakerpy",
-    version="0.0.1",
+    version="0.0.2",
     author="Fabrice Quenneville",
     author_email="",
     url="",

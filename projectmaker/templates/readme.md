@@ -1,6 +1,6 @@
 # projectname
 
-projectname is a Python command line tool
+projectname is a projectlanguage command line tool
 
 ## Documentation
 

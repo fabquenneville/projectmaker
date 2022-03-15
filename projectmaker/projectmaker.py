@@ -3,10 +3,10 @@
 
 # Normal import
 try:
-    from projectmaker.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_php_library, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
+    from projectmaker.library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_php_library, make_bash, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 # Allow local import for development purposes
 except ModuleNotFoundError:
-    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_php_library, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
+    from library.tools import load_arguments, make_directory, make_gitignore, make_todo, make_readme, make_php, make_php_scripts, make_php_library, make_bash, make_python, make_setup, make_empty_file, make_license, make_docs, make_git, make_config
 
 
 def main():
@@ -31,7 +31,8 @@ def main():
     if arguments["readme"]:
         make_readme(
             path            = projectpath,
-            projectname     = arguments["name"]
+            projectname     = arguments["name"],
+            projectlanguage = arguments["language"]
         )
     if arguments["license"]:
         make_license(
@@ -79,6 +80,12 @@ def main():
         )
     elif arguments["language"] == "phplibrary":
         make_php_library(
+            path            = projectpath,
+            projectowner    = arguments["owner"],
+            projectname     = arguments["name"]
+        )
+    elif arguments["language"] == "bash":
+        make_bash(
             path            = projectpath,
             projectowner    = arguments["owner"],
             projectname     = arguments["name"]

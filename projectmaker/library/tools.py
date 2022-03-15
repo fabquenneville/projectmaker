@@ -131,7 +131,7 @@ def make_todo(path):
         return False
     return True
 
-def make_readme(path, projectname):
+def make_readme(path, projectname, projectlanguage = False):
     ''' Builds the projects README.md.
 
     Args:
@@ -145,7 +145,8 @@ def make_readme(path, projectname):
     if not copyfilled(
         pathin          = templatespath + "readme.md",
         pathout         = path + 'README.md',
-        projectname     = projectname
+        projectname     = projectname,
+        projectlanguage = projectlanguage
     ):
         return False
     return True
@@ -166,33 +167,6 @@ def make_css(path):
     ):
         return False
     return True
-
-# def make_php(path, projectowner, projectname):
-#     ''' Builds the projects basic php files.
-
-#     Args:
-#         path:           The path of the directory to make.
-#         projectowner:   The name of the owner for the project to pre-fill.
-#         projectname:    The name for the project to pre-fill.
-
-#     Returns:
-#         boolean: The success of the operation
-#     '''
-#     templatespath = get_templates_path()
-#     make_css(path + projectname + "/library/css/")
-#     make_php_libraries(
-#         path            = path + projectname + "/library/php/",
-#         projectowner    = projectowner,
-#         projectname     = projectname
-#     )
-#     copyfilled(
-#         pathin          = templatespath + "default.js",
-#         pathout         = path + projectname + '/library/javascript/default.js',
-#     )
-#     copyfilled(
-#         pathin          = templatespath + ".htaccess",
-#         pathout         = path + projectname + '/www/.htaccess',
-#     )
 
 def make_php(path, projectowner, projectname):
     ''' Builds the projects basic php files.
@@ -294,6 +268,28 @@ def make_php_library(path, projectowner, projectname):
     #     projectname     = projectname
     # )
     # chmodx(path + projectname + "/" + projectname +".php")
+
+def make_bash(path, projectowner, projectname):
+    ''' Builds the projects basic php files.
+
+    Args:
+        path:           The path of the directory to make.
+        projectowner:   The name of the owner for the project to pre-fill.
+        projectname:    The name for the project to pre-fill.
+
+    Returns:
+        boolean: The success of the operation
+    '''
+    templatespath = get_templates_path()
+    make_directory(path + projectname)
+
+    copyfilled(
+        pathin          = templatespath + "hello.sh",
+        pathout         = path + projectname + "/hello.sh",
+        projectname     = projectname,
+        projectowner    = projectowner
+    )
+    chmodx(path + projectname + "/hello.sh")
 
 def make_license(path, projectowner, license = False):
     ''' Builds the projects basic php files.
@@ -469,7 +465,7 @@ def chmodx(filepath):
     print(f"Gave executable permission to {os.path.basename(filepath)}")
 
 
-def copyfilled(pathin, pathout, projectowner = False, projectname = False, projectyear = False):
+def copyfilled(pathin, pathout, projectowner = False, projectname = False, projectyear = False, projectlanguage = False):
     ''' Copies a file template filled witht the information passed as parameters.
 
     Args:
@@ -492,6 +488,8 @@ def copyfilled(pathin, pathout, projectowner = False, projectname = False, proje
                     text = text.replace("projectname", projectname)
                 if projectyear:
                     text = text.replace("projectyear", projectyear)
+                if projectlanguage:
+                    text = text.replace("projectlanguage", projectlanguage)
                 fo.write(text)
     except UnicodeDecodeError:
         try:
@@ -526,9 +524,9 @@ def make_git(path, url, language, projectname, components = list()):
     Returns:
     '''
     repo = git.Repo.init(path)
-    # repo.git.add(u=True)
     repo.git.add('--all')
     repo.index.commit("initial commit")
+    branchname = repo.active_branch.name
     print(f"Commited to initial git repository.")
     if language == "php":
         if "fontawesome" in components:
@@ -541,4 +539,4 @@ def make_git(path, url, language, projectname, components = list()):
             )
             repo.index.commit("Added Font-Awesome submodule")
     repo.create_remote("origin", url=url)
-    repo.remote("origin").push("main")
+    repo.remote("origin").push(branchname)
