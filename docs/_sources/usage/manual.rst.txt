@@ -1,0 +1,116 @@
+======
+Manual
+======
+
+Name
+----
+
+projectmaker
+
+Synopsis
+--------
+
+.. code-block:: bash
+
+    projectmaker    -path: [-name:] [-owner:]
+                    [-language:python,php,phpscripts,phplibrary,bash]
+                    [-license:mit,gpl2,gpl3,moz2,apache,none]
+                    [-readme:none] [-docs:sphinx,none] [-config:none]
+                    [-components:fontawesome,none] [-git:]
+
+default options are:
+
+.. code-block:: bash
+
+    -language:python
+    -license:mit
+    -readme:
+    -docs:sphinx
+    -components:none
+
+Description
+-----------
+
+projectmakerpy is a Python command line tool to make blank project frameworks.
+
+* Setup the folder structure.
+* Create and link basic files.
+* Initiate git repositories and integrate basic submodules.
+* Setup a basic Hello world and its linked blank code libraries.
+
+Options
+-------
+
+-path:
+======
+The path where to create the project framework.
+
+-name:
+======
+The name for the project to pre-fill.
+
+-owner:
+=======
+The name of the owner for the project to pre-fill.
+
+-language:
+==========
+[python,php,phpscripts,phplibrary,bash]
+The programming language of the project.
+
+PHP has three options: php, phpscripts, phplibrary.
+
+-license:
+=========
+[mit,gpl2,gpl3,moz2,apache,none]
+The acronym of the license to add to the project, defaults to the MIT license.
+
+-readme:
+========
+Weither to add a README.md to the project.
+
+-docs:
+======
+[sphinx,none]
+Weither to add a documentation template to the project, defaults to a sphinx documentation and related scripts.
+
+-config:
+========
+[none]
+Weither to add a configuration file to the project, defaults to a config.ini file in the main directory.
+
+-components:
+============
+[fontawesome,none]
+Weither the Font-Awesome submodule.
+
+-git:
+=====
+The url of a blank git repository where this project will be hosted and where to push the first commits.
+
+
+See Also
+--------
+
+
+Fellow projects used by projectmaker
+====================================
+
+* `Git source code managment <https://git-scm.com/doc>`_
+* `Sphinx documentation generator <https://www.sphinx-doc.org/en/master/>`_
+* `docsource <https://github.com/fabquenneville/docsource>`_
+* `Font-Awesome <https://fontawesome.com/>`_
+
+Licenses
+========
+
+* `MIT <https://opensource.org/licenses/MIT>`_
+* `GNU GPLv2 <https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html>`_
+* `GNU GPLv3 <https://www.gnu.org/licenses/gpl-3.0.html>`_
+* `Mozilla Public License v2.0 <https://www.mozilla.org/en-US/MPL/2.0/>`_
+* `Apache License v2.0 <https://www.apache.org/licenses/LICENSE-2.0>`_
+
+Author
+------
+
+Fabrice Quenneville
