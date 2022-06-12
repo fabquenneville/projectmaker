@@ -3,7 +3,6 @@
 ## Bugs
 * Test blanks: docs, language
 * projectname not being replaced in the docs creation process.
-* Add 
 
 ## Project
 * Document cli

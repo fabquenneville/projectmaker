@@ -398,11 +398,11 @@ def make_python(path, projectowner, projectname):
         return False
 
     try:
-        with open(path + '__init__.py', 'w') as f:
+        with open(path + projectname + "/" + '__init__.py', 'w') as f:
             f.write(f"__all__ = ['{projectname}']")
     except EnvironmentError:
         return False
-    print(f"Successfully created {path + '__init__.py'}")
+    print(f"Successfully created {path + projectname + '/' + '__init__.py'}")
     return True
 
 def make_docs(path, projectowner, projectname):
