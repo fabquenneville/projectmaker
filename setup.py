@@ -6,18 +6,18 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="projectmakerpy",
-    version="0.0.2",
+    name="projectmaker",
+    version="0.0.3",
     author="Fabrice Quenneville",
-    author_email="",
-    url="",
-    download_url="",
+    author_email="fabquenneville@gmail.com",
+    url="https://fabquenneville.github.io/projectmaker/",
+    download_url="https://pypi.org/project/projectmaker/",
     project_urls={
-        "Bug Tracker": "",
-        "Documentation": "",
-        "Source Code": "",
+        "Bug Tracker": "https://github.com/fabquenneville/projectmaker/issues",
+        "Documentation": "https://fabquenneville.github.io/projectmaker/",
+        "Source Code": "https://github.com/fabquenneville/projectmaker",
     },
-    description="",
+    description="projectmaker can make the basic initial file structure for various programing languages and link interesting submodules.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),

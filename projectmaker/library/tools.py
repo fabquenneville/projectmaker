@@ -538,5 +538,13 @@ def make_git(path, url, language, projectname, components = list()):
                 path = path + projectname + "/www/Font-Awesome"
             )
             repo.index.commit("Added Font-Awesome submodule")
+        if "flagicons" in components:
+            git.Submodule.add(
+                repo = repo,
+                url = "git@github.com:lipis/flag-icons.git",
+                name = "flag-icons",
+                path = path + projectname + "/www/flag-icons"
+            )
+            repo.index.commit("Added flag-icons submodule")
     repo.create_remote("origin", url=url)
     repo.remote("origin").push(branchname)
